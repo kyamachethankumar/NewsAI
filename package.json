@@ -1,0 +1,26 @@
+{
+  "name": "news-ai-backend",
+  "version": "1.0.0",
+  "description": "News AI backend server using Express and NewsAPI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "node test-api.js",
+    "server": "node start-server.js"
+  },
+  "keywords": [
+    "news",
+    "api",
+    "express",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.15.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1"
+  }
+}

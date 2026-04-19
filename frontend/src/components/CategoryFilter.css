@@ -1,0 +1,126 @@
+/* Category Filter */
+.category-filter {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.filter-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Category Buttons Container - Mobile Horizontal Scroll */
+.category-buttons {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+}
+
+.category-buttons::-webkit-scrollbar {
+  height: 4px;
+}
+
+.category-buttons::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.category-buttons::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.3);
+  border-radius: 2px;
+}
+
+.category-buttons::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.5);
+}
+
+/* Category Button */
+.category-btn {
+  padding: 8px 16px;
+  background: #f0f2f5;
+  border: 2px solid transparent;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+
+.category-btn:hover {
+  background: #e8ebf0;
+  color: #667eea;
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.category-btn:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Tablet - Wrap buttons */
+@media (min-width: 768px) {
+  .category-filter {
+    padding: 20px;
+  }
+
+  .filter-title {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .category-btn {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .category-filter {
+    padding: 24px;
+  }
+
+  .category-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .category-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .category-btn.active {
+    transform: translateY(-2px);
+  }
+}
