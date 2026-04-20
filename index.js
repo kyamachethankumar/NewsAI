@@ -17,6 +17,30 @@ if (!NEWS_API_KEY) {
 app.use(cors());
 app.use(express.json());
 
+// Helper function to generate summary
+function generateSummary(text) {
+  if (!text || typeof text !== 'string') return '';
+  
+  // Split into sentences (basic split on . ! ?)
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  // Take first 2-3 sentences
+  const selected = sentences.slice(0, 3);
+  let summary = selected.join('. ').trim();
+  
+  // Ensure ends with period if not empty
+  if (summary && !/[.!?]$/.test(summary)) {
+    summary += '.';
+  }
+  
+  // Limit to 300 characters
+  if (summary.length > 300) {
+    summary = summary.substring(0, 297) + '...';
+  }
+  
+  return summary;
+}
+
 // Root endpoint
 app.get('/', (req, res) => {
   res.json({ message: 'News API is running' });
@@ -102,6 +126,7 @@ app.get('/news', async (req, res) => {
             ? article.description 
             : 'No description',
           content: content,
+          summary: generateSummary(content),
           url: (article.url && typeof article.url === 'string') ? article.url : '',
           image: (article.urlToImage && typeof article.urlToImage === 'string') ? article.urlToImage : ''
         };
